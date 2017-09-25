@@ -1,28 +1,61 @@
 Answer each question in a written format
 
 1. What does semantic HTML mean?
+    Semantic HTML is where the tags are defined, so we know that a <p> tag would be refering to a paragraph.
 
 2. What is the box model?
+    Everything in HTML is considered a box. The box model is what we use to specify 
+how we want to display and position those boxes.
+    We have content in the middle, then padding between our content and the border, 
+then our border itself and finally, our margin is outside of our box and gives it 
+space between other boxes.
 
 3. What is the difference between IDs and Classes?
+    A class can be assigned to many elements. an ID is typically used to identify 1 specific 
+element. An ID is usefull for manipulating an element with Javascript by allowing us to target 
+the element with getElementByID.
 
 4. What does the z-index do?
+    If we end up with elements that are overlaping (one of our 'boxes' on top of another box), 
+we can use the z-index property to specify which element we want to appear 'on top' or 'the most 
+forward on the screen'.
 
 5. Summarize what the keyword 'this' is used for?
+    'This' is referring to the object that owns some piece of code. Constructor functions are reusable 
+with many objects so it's convienent to use the 'this' keyword inside our function, so that the function 
+is dynamic across all our objects that we create with the constructor.
 
 6. What is a callback?
+    a callback is a function that gets passed in as a paramater of another function and can be called within the function.
 
 7. What is a closure?
+    You can have a childFuntion that is returned inside of a parentFunction. Returning the child 
+function will keep all of the parent's variables private unless they are return as part of the 
+child function. 
 
 8. How does prototype work?
+    A prototype is a reusable piece of code that can be used to manipulate an object and or many 
+objects. The advantages to putting this manipulating code into a prototype is that you can use it 
+quickly and as many times as you'd like.
 
 9. What is MVC?
+    MVC is Model View Controller. This would be a framework like React or Angular. The Model is where 
+all the programming and logic take place, the View is the side that the user sees and interacts with, 
+and the Controller handles all the interaction between the View and the Model.
 
 10. What is the component lifecycle?
+    This is referring to how a component is loaded and when certain functions inside the compoenent 
+should fire. Some functions will fire before the component is rendered, effecting props and state 
+before any information is displayed. Other functions can be set to execute once the component is 
+rendered.
 
 11. What is REST?
+    REST or REpresentaional State Transfer is where two systems have some data and they are in constant 
+comunication and able to make requests to manipulate each others data.
 
 12. Name three ways of getting data from the URL using express
+    req.params, req.query, req.path
+
 
 create table users (
 id serial,
@@ -32,10 +65,17 @@ email varchar(255)
 
 12. Given the Schema above, write the following four basic CRUD db queries using postgres syntax
 
--Get all users:
+-Get all users: 
+    select * from users;
 
 -Create a new user with the name of 'your name' and an email of 'fake@fake.com':
+    insert into users (name, email) values ('your name', 'fake@fake.com')
 
 -Update the newly created user's name to 'Bobby Boy':
+    update users 
+    set name = 'Bobby Boy'
+    where id = $1
 
 -Delete the newly updated user:
+    delete from users
+    where id = $1
